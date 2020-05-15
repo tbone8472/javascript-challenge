@@ -20,4 +20,16 @@ console.log(inputValue)
 dTime = tableData.filter(function(data){ return (inputValue === data.datetime)})
 console.log(dTime)
 
+// Get a reference to the table body
+var tbody = d3.select("tbody");
+
+// Step 1: Loop Through `data` and console.log each ufo report object
+dTime.forEach(function(tableData){
+
+	var row = tbody.append("tr");
+    Object.entries(tableData).forEach(function([key, value]){
+	  var cell = row.append("td");
+	  cell.text(value)  
+   });
+});
 });
